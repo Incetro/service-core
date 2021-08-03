@@ -20,6 +20,8 @@
 		CB28B7AC26B9BC9200EE8AD4 /* HTTPTransport.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CB28B7A926B9BC9200EE8AD4 /* HTTPTransport.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CB28B7AD26B9BC9300EE8AD4 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB28B7AA26B9BC9200EE8AD4 /* Alamofire.xcframework */; };
 		CB28B7AE26B9BC9300EE8AD4 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CB28B7AA26B9BC9200EE8AD4 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CB28B7B126B9BF7F00EE8AD4 /* Codex.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB28B7B026B9BF7F00EE8AD4 /* Codex.xcframework */; };
+		CB28B7B226B9BF7F00EE8AD4 /* Codex.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CB28B7B026B9BF7F00EE8AD4 /* Codex.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CB30D71D256ADE2E00EE2C61 /* ServiceCore.h in Headers */ = {isa = PBXBuildFile; fileRef = CB30D71B256ADE2E00EE2C61 /* ServiceCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				CB28B7AE26B9BC9300EE8AD4 /* Alamofire.xcframework in Embed Frameworks */,
+				CB28B7B226B9BF7F00EE8AD4 /* Codex.xcframework in Embed Frameworks */,
 				CB28B7AC26B9BC9200EE8AD4 /* HTTPTransport.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -62,6 +65,7 @@
 		CB1124EF256C09B400215E47 /* MainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTests.swift; sourceTree = "<group>"; };
 		CB28B7A926B9BC9200EE8AD4 /* HTTPTransport.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = HTTPTransport.xcframework; path = Carthage/Build/HTTPTransport.xcframework; sourceTree = "<group>"; };
 		CB28B7AA26B9BC9200EE8AD4 /* Alamofire.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Alamofire.xcframework; path = Carthage/Build/Alamofire.xcframework; sourceTree = "<group>"; };
+		CB28B7B026B9BF7F00EE8AD4 /* Codex.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Codex.xcframework; path = Carthage/Build/Codex.xcframework; sourceTree = "<group>"; };
 		CB30D6C9256ADB0C00EE2C61 /* ServiceCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ServiceCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB30D71B256ADE2E00EE2C61 /* ServiceCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceCore.h; sourceTree = "<group>"; };
 		CB30D71C256ADE2E00EE2C61 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,6 +85,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB28B7AD26B9BC9300EE8AD4 /* Alamofire.xcframework in Frameworks */,
+				CB28B7B126B9BF7F00EE8AD4 /* Codex.xcframework in Frameworks */,
 				CB28B7AB26B9BC9200EE8AD4 /* HTTPTransport.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,6 +135,7 @@
 		CB28B7A826B9BC9200EE8AD4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CB28B7B026B9BF7F00EE8AD4 /* Codex.xcframework */,
 				CB28B7AA26B9BC9200EE8AD4 /* Alamofire.xcframework */,
 				CB28B7A926B9BC9200EE8AD4 /* HTTPTransport.xcframework */,
 			);
