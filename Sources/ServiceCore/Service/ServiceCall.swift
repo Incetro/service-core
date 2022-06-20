@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Combine
 
 // MARK: - ServiceCall
 
@@ -68,5 +69,28 @@ public final class ServiceCall<Payload> {
             }
         }
         return completion
+    }
+
+    /// Run on publisher
+    @available(iOS 13.0, *)
+    @discardableResult func publish() -> AnyPublisher<Payload, NSError> {
+        Deferred {
+            Future { completion in
+                self.operationQueue.addOperation {
+                    do {
+                        let result = try self.main()
+                        let payload = try result.get()
+                        self.callbackQueue.addOperation {
+                            completion(.success(payload))
+                        }
+                    } catch {
+                        self.callbackQueue.addOperation {
+                            completion(.failure(error as NSError))
+                        }
+                    }
+                }
+            }
+        }
+        .eraseToAnyPublisher()
     }
 }
