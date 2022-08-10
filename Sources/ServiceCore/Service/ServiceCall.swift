@@ -74,19 +74,17 @@ public final class ServiceCall<Payload> {
     /// Run on publisher
     @available(iOS 13.0, *)
     @discardableResult public func publish() -> AnyPublisher<Payload, NSError> {
-        Deferred {
-            Future { completion in
-                self.operationQueue.addOperation {
-                    do {
-                        let result = try self.main()
-                        let payload = try result.get()
-                        self.callbackQueue.addOperation {
-                            completion(.success(payload))
-                        }
-                    } catch {
-                        self.callbackQueue.addOperation {
-                            completion(.failure(error as NSError))
-                        }
+        Future { completion in
+            self.operationQueue.addOperation {
+                do {
+                    let result = try self.main()
+                    let payload = try result.get()
+                    self.callbackQueue.addOperation {
+                        completion(.success(payload))
+                    }
+                } catch {
+                    self.callbackQueue.addOperation {
+                        completion(.failure(error as NSError))
                     }
                 }
             }
