@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Combine
 
 // MARK: - CancelableServiceCall
 
@@ -84,5 +85,32 @@ final public class CancelableServiceCall<Payload> {
             cancelClosure?()
         }
         return nil != cancelClosure
+    }
+
+    /// Run on publisher
+    @available(iOS 13.0, *)
+    @discardableResult public func publish() -> AnyPublisher<Payload, NSError> {
+        Future { completion in
+            self.operationQueue.addOperation {
+                do {
+                    try self.main(self) { (result: Result<Payload, Error>) -> Void in
+                        self.result = result
+                        self.callbackQueue.addOperation {
+                            switch result {
+                            case .success(let payload):
+                                completion(.success(payload))
+                            case .failure(let error):
+                                completion(.failure(error as NSError))
+                            }
+                        }
+                    }
+                } catch {
+                    self.callbackQueue.addOperation {
+                        completion(.failure(error as NSError))
+                    }
+                }
+            }
+        }
+        .eraseToAnyPublisher()
     }
 }
