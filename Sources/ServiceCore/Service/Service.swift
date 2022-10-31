@@ -50,4 +50,14 @@ open class Service {
             main: main
         )
     }
+
+    /// Assemble a async call object with progress callback.
+    /// - Parameter main: main execution method
+    open func createProgressableCall<Payload>(main: @escaping ProgressableServiceCall<Payload>.Main) -> ProgressableServiceCall<Payload> {
+        ProgressableServiceCall(
+            operationQueue: operationQueue,
+            callbackQueue: completionQueue,
+            main: main
+        )
+    }
 }

@@ -20,6 +20,8 @@
 		CB28B7AD26B9BC9300EE8AD4 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB28B7AA26B9BC9200EE8AD4 /* Alamofire.xcframework */; };
 		CB28B7B126B9BF7F00EE8AD4 /* Codex.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB28B7B026B9BF7F00EE8AD4 /* Codex.xcframework */; };
 		CB30D71D256ADE2E00EE2C61 /* ServiceCore.h in Headers */ = {isa = PBXBuildFile; fileRef = CB30D71B256ADE2E00EE2C61 /* ServiceCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CB6A8C85290FCD3B00192121 /* ProgressableServiceCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A8C84290FCD3B00192121 /* ProgressableServiceCall.swift */; };
+		CB6A8C87290FD1BE00192121 /* ProgressableServiceCallResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A8C86290FD1BD00192121 /* ProgressableServiceCallResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		CB30D6C9256ADB0C00EE2C61 /* ServiceCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ServiceCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB30D71B256ADE2E00EE2C61 /* ServiceCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceCore.h; sourceTree = "<group>"; };
 		CB30D71C256ADE2E00EE2C61 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB6A8C84290FCD3B00192121 /* ProgressableServiceCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressableServiceCall.swift; sourceTree = "<group>"; };
+		CB6A8C86290FD1BD00192121 /* ProgressableServiceCallResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressableServiceCallResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 				336FE769265A1CAE00E1807F /* WebService.swift */,
 				336FE76A265A1CAE00E1807F /* CancelableServiceCall.swift */,
 				336FE76B265A1CAE00E1807F /* ServiceCall.swift */,
+				CB6A8C84290FCD3B00192121 /* ProgressableServiceCall.swift */,
+				CB6A8C86290FD1BD00192121 /* ProgressableServiceCallResult.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -226,7 +232,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1200;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					CB112408256BF9AE00215E47 = {
 						CreatedOnToolsVersion = 12.0;
@@ -288,10 +294,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				336FE770265A1CAE00E1807F /* HTTPResponse.swift in Sources */,
+				CB6A8C87290FD1BE00192121 /* ProgressableServiceCallResult.swift in Sources */,
 				336FE77C265A1CAE00E1807F /* CancelableServiceCall.swift in Sources */,
 				336FE774265A1CAE00E1807F /* ServiceCallResult.swift in Sources */,
 				33AC50EE265A1F22003B9C54 /* Optional.swift in Sources */,
 				336FE780265A1CAE00E1807F /* ServiceCall.swift in Sources */,
+				CB6A8C85290FCD3B00192121 /* ProgressableServiceCall.swift in Sources */,
 				336FE778265A1CAE00E1807F /* WebService.swift in Sources */,
 				336FE76C265A1CAE00E1807F /* Service.swift in Sources */,
 			);
@@ -472,6 +480,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DEAD_CODE_STRIPPING = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
@@ -508,6 +517,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DEAD_CODE_STRIPPING = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_NO_COMMON_BLOCKS = YES;
