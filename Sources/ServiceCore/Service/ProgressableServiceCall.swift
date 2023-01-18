@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import CombineExtensions
 
 // MARK: - Progressable
 
@@ -121,7 +122,7 @@ extension ProgressableServiceCall where Payload: Equatable {
     /// Run on publisher
     @available(iOS 13.0, *)
     @discardableResult public func publish() -> AnyPublisher<Progressable<Payload>, NSError> {
-        Future { completion in
+        .run { subscriber in
             self.operationQueue.addOperation {
                 do {
                     try self.main(
@@ -129,7 +130,7 @@ extension ProgressableServiceCall where Payload: Equatable {
                         { progress in
                             self.progress = progress
                             self.callbackQueue.addOperation {
-                                completion(.success(.progress(progress)))
+                                subscriber.send(.progress(progress))
                             }
                         },
                         { result in
@@ -137,20 +138,20 @@ extension ProgressableServiceCall where Payload: Equatable {
                             self.callbackQueue.addOperation {
                                 switch result {
                                 case .success(let payload):
-                                    completion(.success(.value(payload)))
+                                    subscriber.send(.value(payload))
                                 case .failure(let error):
-                                    completion(.failure(error as NSError))
+                                    subscriber.send(completion: .failure(error as NSError))
                                 }
                             }
                         }
                     )
                 } catch {
                     self.callbackQueue.addOperation {
-                        completion(.failure(error as NSError))
+                        subscriber.send(completion: .failure(error as NSError))
                     }
                 }
             }
+            return AnyCancellable {}
         }
-        .eraseToAnyPublisher()
     }
 }
