@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "combine-extensions",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Incetro/combine-extensions",
+      "state" : {
+        "branch" : "main",
+        "revision" : "200e01af030921bcc62a4910143cd624c7c30f93"
+      }
+    }
+  ],
+  "version" : 2
+}

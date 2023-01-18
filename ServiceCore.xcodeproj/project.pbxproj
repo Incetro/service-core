@@ -22,6 +22,7 @@
 		CB30D71D256ADE2E00EE2C61 /* ServiceCore.h in Headers */ = {isa = PBXBuildFile; fileRef = CB30D71B256ADE2E00EE2C61 /* ServiceCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB6A8C85290FCD3B00192121 /* ProgressableServiceCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A8C84290FCD3B00192121 /* ProgressableServiceCall.swift */; };
 		CB6A8C87290FD1BE00192121 /* ProgressableServiceCallResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A8C86290FD1BD00192121 /* ProgressableServiceCallResult.swift */; };
+		DEAEA0C82978545C004FDF40 /* CombineExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = DEAEA0C72978545C004FDF40 /* CombineExtensions */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 			files = (
 				CB28B7AD26B9BC9300EE8AD4 /* Alamofire.xcframework in Frameworks */,
 				CB28B7B126B9BF7F00EE8AD4 /* Codex.xcframework in Frameworks */,
+				DEAEA0C82978545C004FDF40 /* CombineExtensions in Frameworks */,
 				CB28B7AB26B9BC9200EE8AD4 /* HTTPTransport.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,6 +223,9 @@
 			dependencies = (
 			);
 			name = "ServiceCore IOS";
+			packageProductDependencies = (
+				DEAEA0C72978545C004FDF40 /* CombineExtensions */,
+			);
 			productName = "ServiceCore IOS";
 			productReference = CB30D6C9256ADB0C00EE2C61 /* ServiceCore.framework */;
 			productType = "com.apple.product-type.framework";
@@ -253,6 +258,9 @@
 				Base,
 			);
 			mainGroup = CB30D6BD256ADAB400EE2C61;
+			packageReferences = (
+				DEAEA0C62978545C004FDF40 /* XCRemoteSwiftPackageReference "combine-extensions" */,
+			);
 			productRefGroup = CB30D6CA256ADB0C00EE2C61 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -590,7 +598,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "Sources/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -666,7 +674,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "Sources/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -719,6 +727,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DEAEA0C62978545C004FDF40 /* XCRemoteSwiftPackageReference "combine-extensions" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Incetro/combine-extensions";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DEAEA0C72978545C004FDF40 /* CombineExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DEAEA0C62978545C004FDF40 /* XCRemoteSwiftPackageReference "combine-extensions" */;
+			productName = CombineExtensions;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CB30D6BE256ADAB400EE2C61 /* Project object */;
 }
