@@ -7,6 +7,7 @@
 //
 
 import HTTPTransport
+import Foundation
 
 // MARK: - WebService
 
