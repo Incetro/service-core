@@ -8,6 +8,7 @@
 
 import HTTPTransport
 import Foundation
+import Codex
 
 // MARK: - WebService
 
@@ -85,5 +86,59 @@ open class WebService: Service {
             }
         }
         return httpRequestParameters
+    }
+}
+
+// MARK: - ServiceCall
+
+extension WebService {
+    
+    /// Assemble a sync/async call object.
+    /// - Parameters:
+    ///   - request: target http request for processing
+    ///   - responsePrecessing: additional closure for result processing
+    /// - Returns: assembled service call ready to call
+    public func serviceCall<T: Decodable>(
+        from request: HTTPRequest,
+        _ responsePrecessing: ((T) -> Void)? = nil
+    ) -> ServiceCall<T> {
+        createCall {
+            let result = self.transport.send(request: request)
+            switch result {
+            case .success(let response):
+                let data = response.body.unsafelyUnwrapped
+                let result = try data.decoded() as T
+                responsePrecessing?(result)
+                return .success(result)
+            case .failure(error: let error):
+                return .failure(error)
+            }
+        }
+    }
+    
+    /// Assemble a sync/async call object.
+    /// - Parameters:
+    ///   - request: target http request for processing
+    ///   - dataByKey: obtains data from specific json key
+    ///   - responsePrecessing: additional closure for result processing
+    /// - Returns: assembled service call ready to call
+    public func serviceCall<T: Decodable>(
+        from request: HTTPRequest,
+        dataByKey: String,
+        _ responsePrecessing: ((T) -> Void)? = nil
+    ) -> ServiceCall<T> {
+        createCall {
+            let result = self.transport.send(request: request)
+            switch result {
+            case .success(let response):
+                let resultJson = try response.getJSONDictionary()?[dataByKey]
+                let resultData = try JSONSerialization.data(withJSONObject: resultJson as Any)
+                let result = try resultData.decoded() as T
+                responsePrecessing?(result)
+                return .success(result)
+            case .failure(error: let error):
+                return .failure(error)
+            }
+        }
     }
 }
