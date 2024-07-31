@@ -2,15 +2,6 @@
   "object": {
     "pins": [
       {
-        "package": "Alamofire",
-        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
-        "state": {
-          "branch": null,
-          "revision": "f96b619bcb2383b43d898402283924b80e2c4bae",
-          "version": "5.4.3"
-        }
-      },
-      {
         "package": "Codex",
         "repositoryURL": "https://github.com/Incetro/codex.git",
         "state": {
@@ -26,15 +17,6 @@
           "branch": "main",
           "revision": "200e01af030921bcc62a4910143cd624c7c30f93",
           "version": null
-        }
-      },
-      {
-        "package": "HTTPTransport",
-        "repositoryURL": "https://github.com/Incetro/http-transport.git",
-        "state": {
-          "branch": null,
-          "revision": "5b40dc06de3db534b2df7e936f0061bf76da27d1",
-          "version": "5.2.8"
         }
       }
     ]
